@@ -28,10 +28,10 @@ func main() {
 func incremental(syncCounter *SyncCounter, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for i := 0; i < 1000; i++ {
-		//syncCounter.Lock()
+		syncCounter.Lock()
 		// lock before add a value to the counter
 		syncCounter.Value++
 		// unlock after the operation being done
-		//syncCounter.Unlock()
+		syncCounter.Unlock()
 	}
 }
